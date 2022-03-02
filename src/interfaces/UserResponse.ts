@@ -1,10 +1,10 @@
-import User from "./User";
+import User from './User';
 
 interface UserResponse {
-    results: User[],
-    info: {
-        page: number
-    }
+  results: User[];
+  info: {
+    page: number;
+  };
 }
 
 export default UserResponse;
