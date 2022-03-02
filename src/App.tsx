@@ -9,7 +9,6 @@ import "./App.scss";
 function App() {
   const [users, setUsers] = useState<IUser[]>([]);
   const [page, setPage] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getUsers();
@@ -21,7 +20,6 @@ function App() {
     const { results, info }: IUserResponse = await response.json();
     setPage(info.page);
     setUsers(results);
-    setLoading(false);
   };
 
   const skeleton = (
@@ -48,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <div className="list">{!users.length ? skeleton : usersList}</div>
-      {!loading && buttons}
+      {users.length ? buttons : null}
     </div>
   );
 }
