@@ -1,0 +1,16 @@
+.user {
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  max-width: 290px;
+  &--avatar {
+    height: 80px;
+    width: 80px;
+    border-radius: 60%;
+  }
+  &--name {
+    margin-inline-start: 10px;
+  }
+}

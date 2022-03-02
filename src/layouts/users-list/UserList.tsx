@@ -1,3 +1,3 @@
-const UserList = () => {}
+const UserList = () => {};
 
 export default UserList;

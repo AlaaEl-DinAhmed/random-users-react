@@ -1,7 +1,7 @@
-interface Avatar {
-    large: string,
-    medium: string,
-    thumbnail: string
+interface IAvatar {
+  large: string;
+  medium: string;
+  thumbnail: string;
 }
 
-export default Avatar;
+export default IAvatar;

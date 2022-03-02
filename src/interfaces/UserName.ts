@@ -1,6 +1,6 @@
-interface UserName {
-    first: string,
-    last: string,
+interface IUserName {
+  first: string;
+  last: string;
 }
 
-export default UserName;
+export default IUserName;

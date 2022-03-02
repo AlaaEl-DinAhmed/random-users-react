@@ -1,8 +1,16 @@
-import IButton from './button';
+import IButton from "./button";
+import "./Button.scss";
 
-const Button: React.FC<IButton> = ({ text, page, isDisabled, onClick }) => {
+const Button: React.FC<IButton> = ({ text, isDisabled, onClick }) => {
+  const classes = `button ${isDisabled ? "button--disabled" : ""}`;
+
   return (
-    <button type="button" disabled={isDisabled} onClick={onClick}>
+    <button
+      className={classes}
+      type="button"
+      disabled={isDisabled}
+      onClick={onClick}
+    >
       {text}
     </button>
   );

@@ -1,9 +1,9 @@
 import Avatar from "./Avatar";
 import UserName from "./UserName";
 
-interface User {
-    name: UserName;
-    picture: Avatar
+interface IUser {
+  name: UserName;
+  picture: Avatar;
 }
 
-export default User;
+export default IUser;
