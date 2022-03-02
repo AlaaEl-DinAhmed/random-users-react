@@ -26,9 +26,15 @@ function App() {
     <UserProfile key={i} user={user} />
   ));
 
+  const skeleton = (
+    <div className="skeleton">
+      <BulletListLoader />
+    </div>
+  );
+
   return (
     <div className="App">
-      <div className="list">{!users.length ? <BulletListLoader /> : usersList}</div>
+      <div className="list">{!users.length ? skeleton : usersList}</div>
 
       <div className="btn-container">
         <Button
