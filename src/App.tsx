@@ -9,6 +9,7 @@ import "./App.scss";
 function App() {
   const [users, setUsers] = useState<IUser[]>([]);
   const [page, setPage] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getUsers();
@@ -20,11 +21,8 @@ function App() {
     const { results, info }: IUserResponse = await response.json();
     setPage(info.page);
     setUsers(results);
+    setLoading(false);
   };
-
-  const usersList = users.map((user: IUser, i) => (
-    <UserProfile key={i} user={user} />
-  ));
 
   const skeleton = (
     <div className="skeleton">
@@ -32,18 +30,25 @@ function App() {
     </div>
   );
 
+  const usersList = users.map((user: IUser, i) => (
+    <UserProfile key={i} user={user} />
+  ));
+
+  const buttons = (
+    <div className="btn-container">
+      <Button
+        text="Prev"
+        isDisabled={page === 1 ? true : false}
+        onClick={() => getUsers(page - 1)}
+      />
+      <Button text="Next" onClick={() => getUsers(page + 1)} />
+    </div>
+  );
+
   return (
     <div className="App">
       <div className="list">{!users.length ? skeleton : usersList}</div>
-
-      <div className="btn-container">
-        <Button
-          text="Prev"
-          isDisabled={page === 1 ? true : false}
-          onClick={() => getUsers(page - 1)}
-        />
-        <Button text="Next" onClick={() => getUsers(page + 1)} />
-      </div>
+      {!loading && buttons}
     </div>
   );
 }
