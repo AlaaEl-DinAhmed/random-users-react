@@ -1,9 +1,9 @@
-import Avatar from "./Avatar";
-import UserName from "./UserName";
+import IAvatar from "./Avatar";
+import IUserName from "./UserName";
 
 interface IUser {
-  name: UserName;
-  picture: Avatar;
+  name: IUserName;
+  picture: IAvatar;
 }
 
 export default IUser;

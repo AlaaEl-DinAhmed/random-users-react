@@ -1,7 +1,7 @@
-import User from "./User";
+import IUser from "./User";
 
 interface IUserResponse {
-  results: User[];
+  results: IUser[];
   info: {
     page: number;
   };
