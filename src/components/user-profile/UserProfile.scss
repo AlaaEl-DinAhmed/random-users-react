@@ -1,12 +1,13 @@
 .user {
   border: 1px solid #eee;
   max-width: 250px;
+  padding-block: 15px;
   &--avatar {
     height: 80px;
     width: 80px;
     border-radius: 60%;
   }
   &--name {
-    margin-inline-start: 10px;
+    margin-block-start: 10px;
   }
 }

@@ -1,4 +1,5 @@
 import Button from "components/button/Button";
+import BulletListLoader from "components/skeleton/Skeleton";
 import UserProfile from "components/user-profile/UserProfile";
 import IUser from "interfaces/User";
 import IUserResponse from "interfaces/UserResponse";
@@ -21,13 +22,13 @@ function App() {
     setUsers(results);
   };
 
+  const usersList = users.map((user: IUser, i) => (
+    <UserProfile key={i} user={user} />
+  ));
+
   return (
     <div className="App">
-      <div className="list">
-        {users.map((user: IUser, i) => (
-          <UserProfile key={i} user={user} />
-        ))}
-      </div>
+      <div className="list">{!users.length ? <BulletListLoader /> : usersList}</div>
 
       <div className="btn-container">
         <Button
