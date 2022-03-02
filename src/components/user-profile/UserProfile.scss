@@ -1,10 +1,6 @@
 .user {
   border: 1px solid #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  max-width: 290px;
+  max-width: 250px;
   &--avatar {
     height: 80px;
     width: 80px;

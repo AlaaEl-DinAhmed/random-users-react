@@ -4,12 +4,13 @@
 }
 
 .btn-container {
-  margin-block-start: 20px;
+  margin-block-start: 40px;
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  justify-content: center;
+  width: 80%;
+  margin: auto;
 }
