@@ -16,6 +16,7 @@ function App() {
   const getUsers = async (pageNumber: number = 0) => {
     const API_URL = `https://randomuser.me/api/?page=${pageNumber}&results=10`;
     const response = await fetch(API_URL);
+    console.log(response);
     const { results, info }: UserResponse = await response.json();
     setPage(info.page);
     setUsers(results);

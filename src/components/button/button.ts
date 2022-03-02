@@ -2,7 +2,7 @@ interface IButton {
   text: string;
   page: number;
   isDisabled?: boolean;
-  onClick: () => any;
+  onClick: () => void;
 }
 
 export default IButton;
