@@ -4,7 +4,7 @@
 
 ### `npm i` or `yarn install`
 
-## Available Scripts
+## Serve the project
 
 In the project directory, you can run:
 
@@ -12,3 +12,9 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## Build the project
+
+In the project directory, you can run:
+
+### `npm run build` or `yarn build`
