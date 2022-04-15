@@ -8,6 +8,7 @@ describe("Button Component", () => {
     render(<Button text="Next" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Next");
+
     expect(btnElement).toBeInTheDocument();
   });
 
@@ -15,6 +16,7 @@ describe("Button Component", () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
+
     expect(btnElement).toBeInTheDocument();
   });
 
@@ -22,6 +24,7 @@ describe("Button Component", () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
+    
     expect(btnElement).toBeDisabled();
   });
 
@@ -29,6 +32,7 @@ describe("Button Component", () => {
     render(<Button text="Prev" isDisabled={false} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
+
     expect(btnElement).not.toBeDisabled();
   });
 
@@ -36,6 +40,7 @@ describe("Button Component", () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
+    
     expect(btnElement).toHaveClass("button--disabled");
   });
 

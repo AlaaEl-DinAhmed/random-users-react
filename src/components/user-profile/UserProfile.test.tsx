@@ -16,6 +16,7 @@ describe("UserProfile Component", () => {
   };
   test("render userProfile component", () => {
     const { container } = render(<UserProfile user={user} />);
+    
     expect(container).toMatchSnapshot();
   });
 
@@ -23,6 +24,7 @@ describe("UserProfile Component", () => {
     render(<UserProfile user={user} />);
 
     const img = screen.getByRole("img");
+    
     expect(img).toHaveAttribute("src", user.picture.medium);
   });
 
@@ -30,6 +32,7 @@ describe("UserProfile Component", () => {
     render(<UserProfile user={user} />);
 
     const pElm = screen.getByText("Alaa Ahmad");
+    
     expect(pElm).toBeInTheDocument();
   });
 });
