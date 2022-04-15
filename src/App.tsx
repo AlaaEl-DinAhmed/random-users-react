@@ -12,6 +12,10 @@ function App() {
 
   useEffect(() => {
     getUsers();
+    return () => {
+      setUsers([]);
+      setPage(0);
+    };
   }, []);
 
   const getUsers = async (pageNumber: number = 0): Promise<void> => {
@@ -45,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="list">{!users.length ? skeleton : usersList}</div>
+      <ul className="list">{!users.length ? skeleton : usersList}</ul>
       {users.length ? buttons : null}
     </div>
   );
