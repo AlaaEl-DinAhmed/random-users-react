@@ -1,53 +1,53 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import Button from "./Button";
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Button from './Button';
 
-describe("Button Component", () => {
+describe('Button Component', () => {
   const click = jest.fn();
-  it("should be rendered with Next text", () => {
+  it('should be rendered with Next text', () => {
     render(<Button text="Next" isDisabled={true} onClick={click} />);
 
-    const btnElement = screen.getByText("Next");
+    const btnElement = screen.getByText('Next');
 
     expect(btnElement).toBeInTheDocument();
   });
 
-  it("should be rendered with Prev text", () => {
+  it('should be rendered with Prev text', () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
-    const btnElement = screen.getByText("Prev");
+    const btnElement = screen.getByText('Prev');
 
     expect(btnElement).toBeInTheDocument();
   });
 
-  it("should be disabled", () => {
+  it('should be disabled', () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
-    const btnElement = screen.getByText("Prev");
+    const btnElement = screen.getByText('Prev');
 
     expect(btnElement).toBeDisabled();
   });
 
-  it("should not be disabled", () => {
+  it('should not be disabled', () => {
     render(<Button text="Prev" isDisabled={false} onClick={click} />);
 
-    const btnElement = screen.getByText("Prev");
+    const btnElement = screen.getByText('Prev');
 
-    expect(btnElement).not.toBeDisabled();
+    expect(btnElement.textContent).toBe('Prev');
   });
 
-  it("should have button--disabled class if it is disabled", () => {
+  it('should have button--disabled class if it is disabled', () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
-    const btnElement = screen.getByText("Prev");
+    const btnElement = screen.getByText('Prev');
 
-    expect(btnElement).toHaveClass("button--disabled");
+    expect(btnElement).toHaveClass('button--disabled');
   });
 
-  it("should fire click event", () => {
+  it('should fire click event', () => {
     render(<Button text="Next" isDisabled={false} onClick={click} />);
 
-    const button = screen.getByRole("button");
+    const button = screen.getByRole('button');
     userEvent.click(button);
 
     expect(click).toHaveBeenCalled();
