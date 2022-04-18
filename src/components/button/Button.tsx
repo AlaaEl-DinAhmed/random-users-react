@@ -2,7 +2,7 @@ import IButton from "./button";
 import "./Button.scss";
 
 const Button: React.FC<IButton> = ({ text, isDisabled, onClick }) => {
-  const classes = `button ${isDisabled ? "button--disabled" : ""}`;
+  const classes = !isDisabled ? "button" : "button button--disabled";
 
   return (
     <button

@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "App";
 
 describe("App Component", () => {
-  it("should show loading indicator", () => {
+  test("should show loading indicator", () => {
     render(<App />);
 
     const btn = screen.getByText("Loading...");
@@ -11,30 +11,42 @@ describe("App Component", () => {
     expect(btn).toBeInTheDocument();
   });
 
-  it("should render list of users", async () => {
+  test("should render list of users", async () => {
     render(<App />);
 
-    const listItems = await screen.findAllByRole("listitem");
+    const users = await screen.findAllByRole("listitem");
 
-    expect(listItems).toHaveLength(10);
+    expect(users).toHaveLength(10);
   });
 
-  it("should get new users list", async () => {
+  test("should get new users list", async () => {
     render(<App />);
 
     const nextBtn = await screen.findByText("Next");
     userEvent.click(nextBtn);
 
-    const listItems = await screen.findAllByRole("listitem");
+    const users = await screen.findAllByRole("listitem");
 
-    expect(listItems).toHaveLength(10);
+    expect(users).toHaveLength(10);
   });
 
-  it("should render a disabled button", async () => {
+  test("should render a disabled button", async () => {
     render(<App />);
 
-    const prevBtn = await screen.findByText("Prev");
+    const prevBtn = await screen.findByRole("button", { name: "Prev" });
 
     expect(prevBtn).toBeDisabled();
+  });
+
+  test("should render an enabled button", async () => {
+    render(<App />);
+
+    const nextBtn = await screen.findByRole("button", { name: "Next" });
+
+    userEvent.click(nextBtn);
+
+    const prevBtn = await screen.findByRole("button", { name: "Prev" });
+
+    await waitFor(() => expect(prevBtn).not.toBeDisabled());
   });
 });

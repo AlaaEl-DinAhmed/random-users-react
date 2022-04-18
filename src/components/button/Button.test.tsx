@@ -4,7 +4,7 @@ import Button from "./Button";
 
 describe("Button Component", () => {
   const click = jest.fn();
-  test("should be rendered with Next text", () => {
+  it("should be rendered with Next text", () => {
     render(<Button text="Next" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Next");
@@ -12,7 +12,7 @@ describe("Button Component", () => {
     expect(btnElement).toBeInTheDocument();
   });
 
-  test("should be rendered with Prev text", () => {
+  it("should be rendered with Prev text", () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
@@ -20,15 +20,15 @@ describe("Button Component", () => {
     expect(btnElement).toBeInTheDocument();
   });
 
-  test("should be disabled", () => {
+  it("should be disabled", () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
-    
+
     expect(btnElement).toBeDisabled();
   });
 
-  test("should not be disabled", () => {
+  it("should not be disabled", () => {
     render(<Button text="Prev" isDisabled={false} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
@@ -36,15 +36,15 @@ describe("Button Component", () => {
     expect(btnElement).not.toBeDisabled();
   });
 
-  test("should have button--disabled class if it is disabled", () => {
+  it("should have button--disabled class if it is disabled", () => {
     render(<Button text="Prev" isDisabled={true} onClick={click} />);
 
     const btnElement = screen.getByText("Prev");
-    
+
     expect(btnElement).toHaveClass("button--disabled");
   });
 
-  test("should fire click event", () => {
+  it("should fire click event", () => {
     render(<Button text="Next" isDisabled={false} onClick={click} />);
 
     const button = screen.getByRole("button");
