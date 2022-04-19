@@ -1,6 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from 'App';
+import { RANDOM_USERS } from 'mocks/randomUsers';
+import { rest } from 'msw';
+import { server } from './mocks/server';
 
 describe('App Component', () => {
   test('should show loading indicator', () => {
@@ -33,7 +36,17 @@ describe('App Component', () => {
     expect(await screen.findByRole('button', { name: 'Prev' })).toBeDisabled();
   });
 
-  test('should render an enabled button', async () => {
+  test.only('should render an enabled button', async () => {
+    server.use(
+      rest.get('https://randomuser.me/api', (req, res, ctx) => {
+        return res(
+          ctx.json({
+            results: RANDOM_USERS,
+            info: { page: 2 },
+          })
+        );
+      })
+    );
     render(<App />);
 
     await userEvent.click(await screen.findByRole('button', { name: 'Next' }));

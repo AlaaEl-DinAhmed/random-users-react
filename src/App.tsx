@@ -11,7 +11,7 @@ function App() {
   const [page, setPage] = useState<number>(0);
 
   useEffect(() => {
-    getUsers();
+    getUsers(1);
     return () => {
       setUsers([]);
       setPage(0);

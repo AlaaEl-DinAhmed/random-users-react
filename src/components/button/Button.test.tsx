@@ -1,5 +1,4 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Button from './Button';
 
 describe('Button Component', () => {
@@ -44,11 +43,10 @@ describe('Button Component', () => {
     expect(btnElement).toHaveClass('button--disabled');
   });
 
-  it.skip('should fire click event', () => {
+  it('should fire click event', () => {
     render(<Button text="Next" isDisabled={false} onClick={click} />);
 
-    const button = screen.getByRole('button');
-    userEvent.click(button);
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
 
     expect(click).toHaveBeenCalled();
   });
