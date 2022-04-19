@@ -1,10 +1,10 @@
-import Button from "components/button/Button";
-import BulletListLoader from "components/skeleton/Skeleton";
-import UserProfile from "components/user-profile/UserProfile";
-import IUser from "interfaces/User";
-import IUserResponse from "interfaces/UserResponse";
-import { useEffect, useState } from "react";
-import "./App.scss";
+import Button from 'components/button/Button';
+import BulletListLoader from 'components/skeleton/Skeleton';
+import UserProfile from 'components/user-profile/UserProfile';
+import IUser from 'interfaces/User';
+import IUserResponse from 'interfaces/UserResponse';
+import { useEffect, useState } from 'react';
+import './App.scss';
 
 function App() {
   const [users, setUsers] = useState<IUser[]>([]);
